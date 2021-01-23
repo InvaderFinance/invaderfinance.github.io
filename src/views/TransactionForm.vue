@@ -330,7 +330,7 @@ export default {
 
       console.log(invaderContractAddress,amt)
 
-      tokenContract.approve(invaderContractAddress,amt).send()
+      tokenContract.methods.approve(invaderContractAddress,amt).send({from: userAddress })
       .then(function(receipt){
         console.log(receipt)
           // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
@@ -366,7 +366,7 @@ export default {
 
       console.log(amt)
 
-      invaderContract.depositTokens(amt).send()
+      invaderContract.methods.depositTokens(amt).send({from: userAddress })
       .then(function(receipt){
         console.log(receipt)
           // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
@@ -397,7 +397,7 @@ export default {
 
       var invaderContract = await Web3Helper.getInvaderContract(web3);
 
-      invaderContract.withdrawTokens(amt).send({from: userAddress})
+      invaderContract.methods.withdrawTokens(amt).send({from: userAddress})
       .then(function(receipt){
           // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
       });
@@ -427,7 +427,7 @@ export default {
       var alienContractAddress = await Web3Helper.getAlienContractAddress()
 
 
-      invaderContract.approve(alienContractAddress,amt).send()
+      invaderContract.methods.approve(alienContractAddress,amt).send({from: userAddress })
       .then(function(receipt){
         console.log(receipt)
           // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
@@ -459,7 +459,7 @@ export default {
       var alienContract = await Web3Helper.getAlienContract(web3)
 
 
-      alienContract.stakeTokens(amt).send()
+      alienContract.methods.stakeTokens(amt).send({from: userAddress })
       .then(function(receipt){
         console.log(receipt)
           // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
@@ -520,7 +520,7 @@ export default {
       var alienContract = await Web3Helper.getAlienContract(web3)
 
 
-      alienContract.claimYields( ).send()
+      alienContract.methods.claimYields( ).send({from: userAddress })
       .then(function(receipt){
         console.log(receipt)
           // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"

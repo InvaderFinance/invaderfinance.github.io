@@ -197,7 +197,7 @@ export default {
 
 		 this.providerNetworkID = await Web3Helper.getProviderNetworkID();
 
-     this.activeAccountAddress = accounts[0]
+     this.activeAccountAddress = window.ethereum.selectedAddress //accounts[0]
 
 		 //this.updateBalances()
    },
@@ -218,6 +218,16 @@ export default {
 
 		 // await this.updateBalances()
 	 },
+
+/*	 async   getAccounts(callback) {
+	    this.web3.eth.getAccounts((error,result) => {
+	        if (error) {
+	            console.log(error);
+	        } else {
+	            callback(result);
+	        }
+	    });
+}	*/
 
 
 
