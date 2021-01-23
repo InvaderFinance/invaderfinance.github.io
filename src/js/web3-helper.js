@@ -72,7 +72,7 @@ var helper = {
   async getTokenContract(web3, contractAddress)
   {
 
-    var tokenContract = web3.eth.contract(tokenContractABI).at(contractAddress)
+    var tokenContract = new web3.eth.Contract(tokenContractABI,contractAddress)
 
     return tokenContract;
   },
@@ -89,7 +89,7 @@ var helper = {
 
     var contractAddress = await this.getInvaderContractAddress()
 
-    var contract =  web3.eth.contract(invaderContractABI).at(contractAddress)
+    var contract =  new web3.eth.Contract(invaderContractABI,contractAddress)
 
     return contract;
   },
@@ -106,7 +106,7 @@ var helper = {
 
     var contractAddress = await this.getAlienContractAddress()
 
-    var contract =  web3.eth.contract(alienContractABI).at(contractAddress)
+    var contract = new web3.eth.Contract(alienContractABI,contractAddress)
 
     return contract;
   },

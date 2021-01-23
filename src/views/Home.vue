@@ -123,7 +123,7 @@ import Web3Helper from '../js/web3-helper.js'
 import CryptoAssets from '../js/cryptoassets.js'
 import MaticHelper from '../js/matic-helper.js'
 
-//const Web3 = require('web3');
+ const Web3 = require('web3');
 
 
 
@@ -146,6 +146,15 @@ export default {
 
 
      this.checkSignedIn()
+
+
+		 if (window.ethereum) {
+					window.web3 = new Web3(window.ethereum);
+					window.ethereum.enable();
+
+				}
+
+
 
 
 			if ( window.ethereum.selectedAddress) {

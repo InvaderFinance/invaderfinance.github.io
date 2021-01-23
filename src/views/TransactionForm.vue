@@ -133,6 +133,8 @@
 
 <script>
 
+const Web3 = require('web3')
+
 import Web3Helper from '../js/web3-helper.js'
 import MaticHelper from '../js/matic-helper.js'
 import CryptoAssets from '../js/cryptoassets.js'
@@ -489,7 +491,7 @@ export default {
       var alienContract = await Web3Helper.getAlienContract(web3)
 
 
-      alienContract.unstakeTokens(amt).send()
+      alienContract.methods.unstakeTokens(amt).send({from: userAddress })
       .then(function(receipt){
         console.log(receipt)
           // receipt can also be a new contract instance, when coming from a "contract.deploy({...}).send()"
